@@ -17,11 +17,13 @@ pipeline{
         stage('UNIT testing'){
             
             steps{
+
+                 sh 'mvn test'
                 
-                script{
+                // script{
                     
-                    sh 'mvn test'
-                }
+                   
+                // }
             }
         }
         // stage('Integration testing'){
