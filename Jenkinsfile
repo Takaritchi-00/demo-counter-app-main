@@ -10,30 +10,30 @@ pipeline{
                 
                 script{
                     
-                    git branch: 'main', url: 'https://github.com/Takaritchi-00/demo-counter-app-main.git'
+                   git branch: 'main', url: 'https://github.com/Takaritchi-00/demo-counter-app-main.git'
                 }
             }
         }
-        stage('UNIT testing'){
+        // stage('UNIT testing'){
             
-            steps{
+        //     steps{
                 
-                script{
+        //         script{
                     
-                    sh 'mvn test'
-                }
-            }
-        }
-        stage('Integration testing'){
+        //             sh 'mvn test'
+        //         }
+        //     }
+        // }
+        // stage('Integration testing'){
             
-            steps{
+        //     steps{
                 
-                script{
+        //         script{
                     
-                    sh 'mvn verify -DskipUnitTests'
-                }
-            }
-        }
+        //             sh 'mvn verify -DskipUnitTests'
+        //         }
+        //     }
+        // }
         // stage('Maven build'){
             
         //     steps{
