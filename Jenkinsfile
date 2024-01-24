@@ -18,58 +18,59 @@ pipeline{
             
             steps{
 
-                 sh 'mvn test'
+               
                 
-                // script{
-                    
+                script{
+
+                              sh 'mvn test'
                    
-                // }
+                }
             }
         }
-        // stage('Integration testing'){
+        stage('Integration testing'){
             
-        //     steps{
+            steps{
                 
-        //         script{
+                script{
                     
-        //             sh 'mvn verify -DskipUnitTests'
-        //         }
-        //     }
-        // }
-        // stage('Maven build'){
+                    sh 'mvn verify -DskipUnitTests'
+                }
+            }
+        }
+        stage('Maven build'){
             
-        //     steps{
+            steps{
                 
-        //         script{
+                script{
                     
-        //             sh 'mvn clean install'
-        //         }
-        //     }
-        // }
-        // stage('Static code analysis'){
+                    sh 'mvn clean install'
+                }
+            }
+        }
+        stage('Static code analysis'){
             
-        //     steps{
+            steps{
                 
-        //         script{
+                script{
                     
-        //             withSonarQubeEnv(credentialsId: 'sonar-api') {
+                    withSonarQubeEnv(credentialsId: 'sonar-api') {
                         
-        //                 sh 'mvn clean package sonar:sonar'
-        //             }
-        //            }
+                        sh 'mvn clean package sonar:sonar'
+                    }
+                   }
                     
-        //         }
-        //     }
-            // stage('Quality Gate Status'){
+                }
+            }
+            stage('Quality Gate Status'){
                 
-            //     steps{
+                steps{
                     
-            //         script{
+                    script{
                         
-            //             waitForQualityGate abortPipeline: false, credentialsId: 'sonar-api'
-            //         }
-            //     }
-            // }
+                        waitForQualityGate abortPipeline: false, credentialsId: 'sonar-api'
+                    }
+                }
+            }
         }
         
 }
