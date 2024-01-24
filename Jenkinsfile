@@ -10,12 +10,12 @@ pipeline{
                    git branch: 'main', url: 'https://github.com/Takaritchi-00/demo-counter-app-main.git'
             }
         }
-        // stage('UNIT testing'){
+        stage('UNIT testing'){
             
-        //     steps{
-        //                       sh 'mvn test'
-        //     }
-        // }
+            steps{
+                              sh 'mvn test'
+            }
+        }
         // stage('Integration testing'){
             
         //     steps{
